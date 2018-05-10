@@ -67,6 +67,9 @@ export class MapComponent implements OnInit {
   private _vizObject$ = new BehaviorSubject<any>({});
 
   @Input() vizObject: any;
+  @Input() visualizationLayers: any;
+  @Input() visualizationConfig: any;
+  @Input() visualizationUiConfig: any;
 
   constructor(private store: Store<fromStore.MapState>) {
     this.isLoaded$ = this.store.select(fromStore.isVisualizationObjectsLoaded);
@@ -77,17 +80,29 @@ export class MapComponent implements OnInit {
   ngOnInit() {
     this.store.dispatch(new fromStore.AddContectPath());
     if (this.vizObject) {
-      this.componentId = this.vizObject.id;
-      this.itemHeight = this.vizObject.details.cardHeight;
+      // This will be refactored to receive from input directly;
+
+      this.visualizationUiConfig = {
+        height: this.vizObject.details.cardHeight,
+        width: this.vizObject.details.cardWidth,
+        fullScreen: this.vizObject.details.fullScreen
+      };
+      const { details, layers, name, id } = this.vizObject;
+      this.visualizationLayers = [...layers];
+      this.visualizationConfig = { ...details, name, id };
+
+      // End of code to be deleted and use input;
+
+      this.componentId = this.visualizationConfig.id;
       this.displayConfigurations = {
-        itemHeight: this.vizObject.details.cardHeight,
+        itemHeight: this.visualizationUiConfig.height,
         mapWidth: '100%'
       };
       this.store.dispatch(new fromStore.InitiealizeVisualizationLegend(this.vizObject.id));
       this.visualizationLegendIsOpen$ = this.store.select(
         fromStore.isVisualizationLegendOpen(this.vizObject.id)
       );
-      this.transformVisualizationObject(this.vizObject);
+      this.transformVisualizationObject(this.visualizationConfig, this.visualizationLayers);
       this.visualizationObject$ = this.store.select(
         fromStore.getCurrentVisualizationObject(this.vizObject.id)
       );
@@ -108,10 +123,12 @@ export class MapComponent implements OnInit {
     }
   }
 
-  transformVisualizationObject(data) {
+  transformVisualizationObject(visualizationConfig, visualizationLayers) {
     // TODO FIND A WAY TO GET GEO FEATURES HERE
-    const newData = getSplitedVisualization(data);
-    const { visObject } = fromUtils.transformVisualizationObject(newData);
+    const { visObject } = fromUtils.transformVisualizationObject(
+      visualizationConfig,
+      visualizationLayers
+    );
     this.visObject = {
       ...this.visObject,
       componentId: this.componentId,

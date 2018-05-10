@@ -5,30 +5,37 @@ import { Layer } from '../models/layer.model';
 import { getBboxBounds } from './layers';
 import { colorBrewer, getColorScale } from './colorBrewer';
 
-export function transformVisualizationObject(visualizationObject) {
+export function transformVisualizationObject(visualizationConfig, visualizationLayers) {
   let visObject = {};
   let geofeatures = {};
   let analytics = {};
   let orgUnitGroupSet = {};
   let serverSideConfig = {};
-  const mapconfig = visualizationObject.details;
+  const {
+    id,
+    name,
+    subtitle,
+    latitude,
+    longitude,
+    basemap,
+    zoom,
+    fullScreen
+  } = visualizationConfig;
   const mapConfiguration: MapConfiguration = {
-    id: mapconfig.id,
-    name: mapconfig.name || visualizationObject.name,
-    subtitle: mapconfig.subtitle,
-    latitude: mapconfig.latitude,
-    longitude: mapconfig.longitude,
-    basemap: mapconfig.basemap,
-    zoom: mapconfig.zoom,
-    fullScreen: mapconfig.fullScreen
+    id,
+    name,
+    subtitle,
+    latitude,
+    longitude,
+    basemap,
+    zoom,
+    fullScreen
   };
 
   let layers: Layer[] = [];
 
-  const vizObjLayers = visualizationObject.layers;
-
-  vizObjLayers.forEach(mapview => {
-    const settings = mapview.settings;
+  visualizationLayers.forEach(mapview => {
+    const settings = mapview.config || mapview.settings;
     const layer = {
       id: settings.id,
       name: settings.name,
