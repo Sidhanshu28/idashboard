@@ -9,6 +9,7 @@ import {Observable} from 'rxjs/Observable';
 export class CurrentDashboardTitleComponent implements OnInit {
 
   @Input() currentDashboardTitle: string;
+  @Input() currentDashboardMainTitle: string;
   constructor() { }
 
   ngOnInit() {

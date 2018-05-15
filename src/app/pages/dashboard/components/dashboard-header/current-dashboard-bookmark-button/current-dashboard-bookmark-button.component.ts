@@ -11,7 +11,10 @@ import * as fromDashboardActions from '../../../../../store/dashboard/dashboard.
 })
 export class CurrentDashboardBookmarkButtonComponent implements OnInit {
   @Input() currentDashboard: Dashboard;
-  constructor(private store: Store<AppState>) {}
+  public showCurrentDashboard: boolean
+  constructor(private store: Store<AppState>) {
+    this.showCurrentDashboard = false;
+  }
 
   ngOnInit() {}
 

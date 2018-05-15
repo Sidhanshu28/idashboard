@@ -1,4 +1,4 @@
-<div class="dashboard-menu-bookmark">
+<div class="dashboard-menu-bookmark" *ngIf="!hideBookMark">
     <a
       title="{{ showBookmarked ? 'Hide bookmarked dashboards': 'Show bookmarked dashboards'}}"
       (click)="toggleBookmarked($event)"

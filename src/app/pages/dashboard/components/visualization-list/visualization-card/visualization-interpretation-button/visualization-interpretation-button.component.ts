@@ -28,6 +28,7 @@ export class VisualizationInterpretationButtonComponent implements OnInit {
         this.interpretationCount + ' interpretation' + (this.interpretationCount > 1 ? 's' : '') :
         'Write interpretation';
     }
+    this.interpretationCount = 0;
   }
 
   toggleInterpretation(e) {

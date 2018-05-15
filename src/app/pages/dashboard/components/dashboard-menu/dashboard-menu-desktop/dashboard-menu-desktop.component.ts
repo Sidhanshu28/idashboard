@@ -18,6 +18,7 @@ export class DashboardMenuDesktopComponent implements OnInit {
   dashboardMenuItems$: Observable<DashboardMenuItem[]>;
   showBookmarked$: Observable<boolean>;
   searchTerm: string;
+  public priority: string;
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -32,6 +33,7 @@ export class DashboardMenuDesktopComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.priority = 'first';
   }
 
   getPreviousPage(e) {
@@ -41,6 +43,7 @@ export class DashboardMenuDesktopComponent implements OnInit {
 
   getNextPage(e) {
     e.stopPropagation();
+    this.priority = 'second';
     this.store.dispatch(new dashboard.ChangeCurrentPageAction(1));
   }
 
@@ -50,12 +53,12 @@ export class DashboardMenuDesktopComponent implements OnInit {
   }
 
   organizeMenu(width: number, forceReduce: boolean = false) {
-    let itemsPerPage = 8;
-    const additionalWidth =  800;
-    const approximatedItemsPerPage: number = (width - additionalWidth) / 100;
+    let itemsPerPage = 28;
+    const additionalWidth =  0;
+    const approximatedItemsPerPage: number = (width + 200 - additionalWidth) / 100;
 
-    if (approximatedItemsPerPage >= 1 && approximatedItemsPerPage <= 8) {
-      itemsPerPage = parseInt(approximatedItemsPerPage.toFixed(0), 10);
+    if (approximatedItemsPerPage >= 1 && approximatedItemsPerPage <= 10) {
+      itemsPerPage = parseInt(approximatedItemsPerPage.toFixed(0), 15);
     } else if (approximatedItemsPerPage < 1) {
       itemsPerPage = 1;
     }

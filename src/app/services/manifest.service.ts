@@ -20,6 +20,8 @@ interface Manifest {
   activities: {
     dhis: {
       href: string;
+      username: string;
+      password: string;
     }
   };
 }
@@ -47,6 +49,24 @@ export class ManifestService {
           observer.complete();
         } else {
           observer.next('../../../');
+          observer.complete();
+        }
+      });
+    });
+  }
+
+  getCredentials(): Observable<any> {
+    return new Observable(observer => {
+      this._getAppManifest().subscribe((manifestObject: Manifest) => {
+        if (manifestObject) {
+          const username = manifestObject.activities ? manifestObject.activities.dhis ?
+                                                      manifestObject.activities.dhis.username || '' : '' : '';
+          const password = manifestObject.activities ? manifestObject.activities.dhis ?
+                                                      manifestObject.activities.dhis.password || '' : '' : '';
+          observer.next(username !== '' && password !== '' ? {username: username, password: password} : null);
+          observer.complete();
+        } else {
+          observer.next(null);
           observer.complete();
         }
       });

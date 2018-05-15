@@ -1,16 +1,16 @@
 {
   "/api": {
-    "target": "https://play.dhis2.org/2.28/",
+    "target": "https://hmisportal.moh.go.tz/dhis/",
     "target1": "http://localhost:8081",
     "secure": "false",
-    "auth": "system:System123",
+    "auth": "",
     "changeOrigin": "true"
   },
   "/": {
-    "target": "https://play.dhis2.org/2.28/",
+    "target": "https://hmisportal.moh.go.tz/dhis/",
     "target1": "http://localhost:8081",
     "secure": "false",
-    "auth": "system:System123",
+    "auth": "",
     "changeOrigin": "true"
   }
 }

@@ -59,7 +59,9 @@ export class DashboardMenuItemDesktopComponent implements OnInit {
     );
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    // console.log(this.dashboardMenuItem);
+  }
 
   toggleEditForm(e?) {
     if (e) {

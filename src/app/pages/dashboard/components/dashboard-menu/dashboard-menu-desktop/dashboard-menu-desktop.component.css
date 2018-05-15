@@ -2,17 +2,13 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  height: 40px;
+  height: 31px;
   width: 100%;
 }
 
 #dashboard-menu-left-container-desktop,
 #dashboard-menu-right-container-desktop {
   display: flex;
-}
-
-#dashboard-menu-search-container-desktop {
-
 }
 
 #dashboard-menu-list-desktop {

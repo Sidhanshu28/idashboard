@@ -34,8 +34,8 @@
 
     <!-- dashboard borkmark area -->
     <a class="dashboard-menu-bookmark-icon" (click)="bookmarkDashboard($event)">
-        <img *ngIf="!dashboardMenuItem.details.bookmarked && isFocused" src="assets/icons/empty-bookmark.png" alt="">
-        <img *ngIf="dashboardMenuItem.details.bookmarked" src="assets/icons/bookmark.png" alt="">
+        <img *ngIf="dashboardMenuItem.details.bookmarked && isFocused" src="assets/icons/empty-bookmark.png" alt="">
+        <img *ngIf="dashboardMenuItem.details.bookmarked && isFocused" src="assets/icons/bookmark.png" alt="">
     </a>
     <!-- end of dashboard bookmark area -->
 
