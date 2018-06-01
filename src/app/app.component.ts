@@ -3,7 +3,7 @@ import {Title} from '@angular/platform-browser';
 import {AppState} from './store/app.reducers';
 import {Store} from '@ngrx/store';
 import * as currentUser from './store/current-user/current-user.actions';
-
+declare var $: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -20,6 +20,13 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.setTitle('Interactive Dashboard 2');
+    $(function () {
+      $('.toggle-menu').click(function() {
+        $('.exo-menu').toggleClass('display');
+
+      });
+
+    });
   }
 
   public setTitle( newTitle: string) {

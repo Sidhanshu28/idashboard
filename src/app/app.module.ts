@@ -131,7 +131,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppContainerComponent,
     SafePipe,
     DashboardMenuBookmarkComponent,
-    DashboardNotificationComponent
+    DashboardNotificationComponent,
   ],
   imports: [
     BrowserModule,
