@@ -3,14 +3,14 @@
     "target": "https://hmisportal.moh.go.tz/dhis/",
     "target1": "http://localhost:8081",
     "secure": "false",
-    "auth": "josephatjulius:Jovan2013",
+    "auth": "",
     "changeOrigin": "true"
   },
   "/": {
     "target": "https://hmisportal.moh.go.tz/dhis/",
     "target1": "http://localhost:8081",
     "secure": "false",
-    "auth": "josephatjulius:Jovan2013",
+    "auth": "",
     "changeOrigin": "true"
   }
 }
