@@ -1,7 +1,8 @@
 <div class="">
-  <div class="dropdown dashboard-menu-item-block-desktop" *ngFor="let menu of dashboardMenus">
-    <button class="dropbtn" *ngIf="menu.priority === priority">{{ menu.name }}</button>
-    <div class="dropdown-content">
+  <div class="dropdown dashboard-menu-item-block-desktop" *ngFor="let menu of allDashboardMenus">
+    <button class="dropbtn" *ngIf="menu.category == 'leaf'" routerLinkActive="active-dashboard" [routerLink]="['/dashboards', menu.id]">{{ menu.name }}</button>
+    <button class="dropbtn" *ngIf="menu.category == 'parent'">{{ menu.name }}</button>
+    <div class="dropdown-content" *ngIf="menu.subMenu">
       <!--<a href="#"  *ngFor="let subMenu of menu.subMenu">{{ subMenu.displayName }}</a>-->
       <div
     class="dashboard-menu-item-block-desktop"
@@ -15,25 +16,4 @@
     </div>
   </div>
 </div>
-
-<!--<div-->
-  <!--id="dashboard-menu-list-container-desktop"-->
-  <!--class="animated"-->
-  <!--style="margin-top: 50px"-->
-<!--&gt;-->
-  <!--<div-->
-    <!--class="dashboard-menu-item-block-desktop"-->
-    <!--*ngFor="let dashboardMenuItem of dashboardMenuItems"-->
-  <!--&gt;-->
-    <!--<app-dashboard-menu-item-desktop-->
-      <!--[dashboardMenuItem]="dashboardMenuItem"-->
-    <!--&gt;-->
-    <!--</app-dashboard-menu-item-desktop>-->
-  <!--</div>-->
-<!--</div>-->
-<!--<div>-->
-  <!--<div class="dashboard-menu-item-block-desktop" *ngFor="let menu of dashboardMenus">-->
-    <!--{{ menu.name }}-->
-  <!--</div>-->
-<!--</div>-->
 

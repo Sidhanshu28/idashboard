@@ -411,3 +411,14 @@ li.flyout-mega>a:hover +.flyout-mega-wrap{
 .hmis_rchs li a, li {
   padding: 0px;
 }
+
+.footer {
+  bottom: 0;
+  background-color: #204d74;
+  margin-top: 20px;
+}
+
+.footer-details {
+  padding-top: 20px;
+  margin-top: 20px;
+}

@@ -1,6 +1,6 @@
 <div class="dashboard-menu-item-desktop" (mouseenter)="onMouseEnter($event)" (mouseleave)="onMouseLeave($event)" appClickOutside (clickOutside)="hideDashboardNotificationIcon()">
     <!--name block-->
-    <a *ngIf="showName" class="dashboard-menu-name-desktop" routerLinkActive="active-dashboard" [routerLink]="['/dashboards', dashboardMenuItem.id]" (dblclick)="toggleEditForm($event)" (contextmenu)="showDropdown($event)">
+    <a *ngIf="showName && dashboardMenuItem"  class="dashboard-menu-name-desktop" routerLinkActive="active-dashboard" [routerLink]="['/dashboards', dashboardMenuItem.id]" (dblclick)="toggleEditForm($event)" (contextmenu)="showDropdown($event)">
     {{ dashboardMenuItem.name}}
   </a>
     <!--end of name block-->

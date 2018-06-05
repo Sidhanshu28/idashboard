@@ -11,7 +11,6 @@ export class DashboardMenusService {
   getMenus(): Observable<any> {
     return Observable.create(observer => {
       this.http.get('api/25/dataStore/observatory/dashboardMenu.json?').subscribe(data => {
-        console.log(data);
       });
     });
     }
