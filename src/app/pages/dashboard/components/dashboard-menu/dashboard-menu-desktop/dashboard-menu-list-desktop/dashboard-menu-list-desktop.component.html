@@ -1,8 +1,8 @@
 <div class="">
   <div class="dropdown dashboard-menu-item-block-desktop" *ngFor="let menu of allDashboardMenus">
-    <button class="dropbtn" *ngIf="menu.category == 'leaf'" routerLinkActive="active-dashboard" [routerLink]="['/dashboards', menu.id]">{{ menu.name }}</button>
-    <button class="dropbtn" *ngIf="menu.category == 'parent'">{{ menu.name }}</button>
-    <div class="dropdown-content" *ngIf="menu.subMenu">
+    <button class="dropbtn" routerLinkActive="active-dashboard" [routerLink]="['/dashboards', menu.id]">{{ menu.name }}<i *ngIf="menu.category == 'parent'" style="background-color: transparent; margin-left: 10px"><img src="assets/icons/dropdown.png" height="20px" width="20px"></i></button>
+    <!--<button class="dropbtn" *ngIf="menu.category == 'parent'">{{ menu.name }}</button>-->
+    <div class="dropdown-content">
       <!--<a href="#"  *ngFor="let subMenu of menu.subMenu">{{ subMenu.displayName }}</a>-->
       <div
     class="dashboard-menu-item-block-desktop"

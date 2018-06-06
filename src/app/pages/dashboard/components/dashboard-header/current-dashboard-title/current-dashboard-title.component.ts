@@ -10,9 +10,11 @@ export class CurrentDashboardTitleComponent implements OnInit {
 
   @Input() currentDashboardTitle: string;
   @Input() currentDashboardMainTitle: string;
+  @Input() dashCategory: string;
   constructor() { }
 
   ngOnInit() {
+    console.log(this.dashCategory);
   }
 
 }

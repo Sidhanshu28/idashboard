@@ -2,6 +2,7 @@
   <div class="dashboard-title-block">
     <div class="dashboard-title">
       <app-current-dashboard-title
+        [dashCategory]="dashCategory"
         [currentDashboardMainTitle]="mainMenuName"
         [currentDashboardTitle]="(currentDashboard$ | async)?.name"></app-current-dashboard-title>
     </div>
